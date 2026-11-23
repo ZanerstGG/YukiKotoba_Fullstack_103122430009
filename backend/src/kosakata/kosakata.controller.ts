@@ -19,16 +19,16 @@ export class KosakataController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.kosakataService.findOne(+id);
+    return this.kosakataService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateKosakataDto: UpdateKosakataDto) {
-    return this.kosakataService.update(+id, updateKosakataDto);
+    return this.kosakataService.update(id, updateKosakataDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.kosakataService.remove(+id);
+    return this.kosakataService.remove(id);
   }
 }
