@@ -13,3 +13,6 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 7 | `07-unit-test-service.png` | Hasil unit test Service Kosakata dengan Vitest (8 test lulus) | Langkah 3: Service (tambahan) |
 | 8 | `08-controller-kosakata.png` | Controller Kosakata dengan method GET, POST, PATCH, DELETE dan dependency injection Service | Langkah 4: Controller |
 | 9 | `09-route-terdaftar.png` | Server NestJS memetakan rute GET, POST, PATCH, DELETE untuk `/kosakata` | Langkah 4: Controller |
+| 10 | `10-dto-validasi.png` | DTO `CreateKosakataDto` dengan aturan class-validator (`@IsString`, `@IsNotEmpty`, `@MaxLength`, `@IsIn`, `@IsBoolean`, `@IsOptional`) | Langkah 5: DTO dan validasi |
+| 11 | `11-validation-pipe-global.png` | Mengaktifkan `ValidationPipe` secara global di `main.ts` | Langkah 5: DTO dan validasi |
+| 12 | `12-unit-test-dto.png` | Hasil unit test validasi DTO (17 test lulus) | Langkah 5: DTO dan validasi (tambahan) |
