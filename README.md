@@ -1,7 +1,7 @@
 # ❄️ YukiKotoba
 
 <p align="center">
-  <img src="Frontend/YukiKotoba/src/assets/hero.png" alt="Ilustrasi belajar bahasa Jepang YukiKotoba" width="480" />
+  <img src="docs/images/hero.png" alt="Ilustrasi belajar bahasa Jepang YukiKotoba" width="480" />
 </p>
 
 <p align="center">
@@ -48,7 +48,7 @@ YukiKotoba adalah aplikasi web pembelajaran bahasa Jepang untuk pemula. Jelajahi
 Pastikan [Node.js](https://nodejs.org/) sudah terpasang, kemudian jalankan:
 
 ```bash
-cd Frontend/YukiKotoba
+cd frontend
 npm install
 npm run dev
 ```
@@ -73,16 +73,18 @@ npm run preview
 ```text
 YukiKotoba_JapaneseStudy_103122430009/
 ├── README.md
-└── Frontend/
-    └── YukiKotoba/
-        ├── public/          # Aset publik
-        ├── src/
-        │   ├── components/  # Komponen antarmuka yang dapat digunakan ulang
-        │   ├── data/        # Data materi pembelajaran
-        │   ├── pages/       # Halaman materi dan latihan
-        │   ├── utils/       # Utilitas, termasuk pelafalan
-        │   └── App.jsx      # State dan navigasi aplikasi
-        └── package.json
+├── docs/
+│   ├── images/          # Gambar untuk README
+│   └── screenshots/     # Screenshot pengerjaan tugas
+└── frontend/            # Aplikasi React + Vite
+    ├── public/          # Aset publik (favicon, gambar banner)
+    ├── src/
+    │   ├── components/  # Komponen antarmuka yang dapat digunakan ulang
+    │   ├── data/        # Data materi pembelajaran
+    │   ├── pages/       # Halaman materi dan latihan
+    │   ├── utils/       # Utilitas, termasuk pelafalan
+    │   └── App.jsx      # State dan navigasi aplikasi
+    └── package.json
 ```
 
 ## 🤝 Kontribusi

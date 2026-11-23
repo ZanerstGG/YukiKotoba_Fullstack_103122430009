@@ -17,12 +17,8 @@ export default function PetaLevel({ setActiveTab }) {
             <div className="ratio ratio-21x9 overflow-hidden">
               <img
                 className="object-fit-cover card-img-top"
-                src="/assets/images/zen_study_banner.jpg"
+                src="/images/zen_study_banner.jpg"
                 alt="Lanskap kuil pagoda dan bunga sakura gaya lukisan tinta"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '/images/zen_study_banner.jpg';
-                }}
               />
             </div>
             <div className="card-body p-4">

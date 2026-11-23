@@ -10,9 +10,11 @@ export default function Belajar({ setActiveTab }) {
   const [shakeWrong, setShakeWrong] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
 
   const currentQ = quizQuestions[currentIdx];
   const progressPercent = ((currentIdx + 1) / quizQuestions.length) * 100;
+  const accuracyPercent = Math.round((correctCount / quizQuestions.length) * 100);
 
   const handleSelect = (key) => {
     if (isAnswered) return;
@@ -21,7 +23,9 @@ export default function Belajar({ setActiveTab }) {
     setShowExplanation(true);
 
     const isCorrect = key === currentQ.correctAnswer;
-    if (!isCorrect) {
+    if (isCorrect) {
+      setCorrectCount((prev) => prev + 1);
+    } else {
       setLives((prev) => Math.max(0, prev - 1));
       setShakeWrong(true);
       setTimeout(() => setShakeWrong(false), 500);
@@ -46,6 +50,7 @@ export default function Belajar({ setActiveTab }) {
     setShowExplanation(false);
     setIsComplete(false);
     setLives(4);
+    setCorrectCount(0);
   };
 
   return (
@@ -181,7 +186,7 @@ export default function Belajar({ setActiveTab }) {
                   </div>
                   <div className="bg-success-subtle border border-success-subtle p-3 rounded-4 flex-fill text-center">
                     <div className="fs-4 fw-bold text-success">
-                      {lives === 4 ? '100%' : `${Math.round((lives / 4) * 100)}%`}
+                      {accuracyPercent}%
                     </div>
                     <div className="small text-body-secondary fw-bold">AKURASI</div>
                   </div>

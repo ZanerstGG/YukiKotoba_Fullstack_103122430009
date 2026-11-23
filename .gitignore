@@ -1,0 +1,20 @@
+# Dependensi dan hasil build (berlaku untuk frontend/ dan backend/)
+node_modules/
+dist/
+coverage/
+
+# File environment (berisi konfigurasi lokal, jangan di-commit)
+.env
+.env.*
+!.env.example
+
+# Log
+*.log
+
+# Pengaturan editor pribadi
+.vscode/
+.idea/
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
