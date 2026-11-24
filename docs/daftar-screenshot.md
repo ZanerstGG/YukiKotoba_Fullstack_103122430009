@@ -33,3 +33,7 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 27 | `27-frontend-memuat-data-backend.png` | Halaman Kosakata memuat 30 kosakata dari backend (`GET /kosakata` di tab Network) | Langkah 8: Integrasi frontend |
 | 28 | `28-frontend-tambah-kosakata.png` | Alur menambah data: kosakata baru tersimpan lewat `POST /kosakata` (201) dan tampil di daftar | Langkah 8: Integrasi frontend (tambah data) |
 | 29 | `29-frontend-error-duplikat.png` | Pesan error dari backend tampil di form saat kosakata duplikat (409) | Langkah 8: Integrasi frontend (error) |
+| 30 | `30-frontend-ubah-hafal.png` | Alur mengubah data: menandai kosakata sudah dihafal lewat `PATCH /kosakata/:id` (200) | Langkah 8: Integrasi frontend (ubah data) |
+| 31 | `31-frontend-konfirmasi-hapus.png` | Dialog konfirmasi sebelum menghapus kosakata | Langkah 8: Integrasi frontend (hapus data) |
+| 32 | `32-frontend-hapus-berhasil.png` | Alur menghapus data: kosakata terhapus lewat `DELETE /kosakata/:id` (200) | Langkah 8: Integrasi frontend (hapus data) |
+| 33 | `33-frontend-data-tersimpan-backend.png` | Setelah halaman di-refresh, perubahan tetap ada karena tersimpan di backend | Langkah 8: Integrasi frontend |
