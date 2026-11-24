@@ -10,7 +10,6 @@ import { Kosakata } from './entities/kosakata.entity.js';
 
 @Injectable()
 export class KosakataService {
-  // Penyimpanan sementara di memori: data hilang saat server restart
   private kosakata: Kosakata[] = [];
 
   create(createKosakataDto: CreateKosakataDto): Kosakata {
@@ -35,7 +34,6 @@ export class KosakataService {
   }
 
   findAll(): Kosakata[] {
-    // Kosakata terbaru tampil paling atas
     return [...this.kosakata].sort((a, b) =>
       b.createdAt.localeCompare(a.createdAt),
     );

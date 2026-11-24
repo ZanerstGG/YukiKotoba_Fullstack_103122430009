@@ -16,3 +16,5 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 10 | `10-dto-validasi.png` | DTO `CreateKosakataDto` dengan aturan class-validator (`@IsString`, `@IsNotEmpty`, `@MaxLength`, `@IsIn`, `@IsBoolean`, `@IsOptional`) | Langkah 5: DTO dan validasi |
 | 11 | `11-validation-pipe-global.png` | Mengaktifkan `ValidationPipe` secara global di `main.ts` | Langkah 5: DTO dan validasi |
 | 12 | `12-unit-test-dto.png` | Hasil unit test validasi DTO (17 test lulus) | Langkah 5: DTO dan validasi (tambahan) |
+| 13 | `13-exception-handling.png` | `NotFoundException` dan `ConflictException` di Service Kosakata | Langkah 6: Penanganan error |
+| 14 | `14-e2e-test-error.png` | Hasil e2e test skenario error 404, 409, dan 400 (5 test lulus) | Langkah 6: Penanganan error (tambahan) |

@@ -20,7 +20,6 @@ describe('Kosakata (e2e): penanganan error', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    // Disamakan dengan konfigurasi ValidationPipe di src/main.ts
     app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,

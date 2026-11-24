@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:3001
+
+### 1
+# @name tambah
+POST {{baseUrl}}/kosakata
+Content-Type: application/json
+
+{
+  "nihongo": "ねこ",
+  "romaji": "neko",
+  "arti": "Kucing",
+  "category": "Hewan",
+  "tag": "Peliharaan",
+  "level": "N5"
+}
+
+### 2
+GET {{baseUrl}}/kosakata
+
+### 3
+GET {{baseUrl}}/kosakata/{{tambah.response.body.$.id}}
+
+### 4
+PATCH {{baseUrl}}/kosakata/{{tambah.response.body.$.id}}
+Content-Type: application/json
+
+{
+  "sudahHafal": true,
+  "level": "N4"
+}
+
+### 5
+POST {{baseUrl}}/kosakata
+Content-Type: application/json
+
+{
+  "nihongo": "ねこ",
+  "romaji": "neko",
+  "arti": "Kucing",
+  "category": "Hewan"
+}
+
+### 6
+DELETE {{baseUrl}}/kosakata/{{tambah.response.body.$.id}}
+
+### 7
+GET {{baseUrl}}/kosakata/{{tambah.response.body.$.id}}
+
+### 8
+POST {{baseUrl}}/kosakata
+Content-Type: application/json
+
+{
+  "nihongo": "",
+  "romaji": "inu",
+  "arti": 123,
+  "category": "Hewan",
+  "level": "N6",
+  "sudahHafal": "ya"
+}
+
+### 9
+GET {{baseUrl}}/kosakata/abc

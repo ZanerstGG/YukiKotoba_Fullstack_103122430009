@@ -5,7 +5,6 @@ import { KosakataService } from './kosakata.service.js';
 describe('KosakataController', () => {
   let controller: KosakataController;
 
-  // Service tiruan: berkat Dependency Injection, Service asli bisa diganti saat pengujian
   const serviceTiruan = {
     create: vi.fn(),
     findAll: vi.fn().mockReturnValue([]),
