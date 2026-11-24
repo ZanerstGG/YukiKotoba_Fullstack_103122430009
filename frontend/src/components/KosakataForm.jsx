@@ -1,25 +1,47 @@
 import { useState } from 'react';
 
+const LEVEL_JLPT = ['N5', 'N4', 'N3', 'N2', 'N1'];
+
 const initialForm = {
   nihongo: '',
   romaji: '',
   arti: '',
   category: '',
   tag: '',
+  level: 'N5',
 };
 
 export default function KosakataForm({ onAddKosakata }) {
   const [form, setForm] = useState(initialForm);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((currentForm) => ({ ...currentForm, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onAddKosakata(form);
-    setForm(initialForm);
+    setIsSubmitting(true);
+    setError(null);
+
+    const tag = form.tag.trim();
+    try {
+      await onAddKosakata({
+        nihongo: form.nihongo.trim(),
+        romaji: form.romaji.trim(),
+        arti: form.arti.trim(),
+        category: form.category.trim(),
+        tag: tag || null,
+        level: form.level,
+      });
+      setForm(initialForm);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -29,6 +51,12 @@ export default function KosakataForm({ onAddKosakata }) {
         <p className="small text-body-secondary mb-3">
           Tambahkan kata atau ungkapan Jepang yang ingin Anda pelajari.
         </p>
+        {error && (
+          <div className="alert alert-danger py-2 small d-flex align-items-center gap-2" role="alert">
+            <i className="bi bi-exclamation-circle-fill" aria-hidden="true" />
+            <span>{error}</span>
+          </div>
+        )}
         <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-md-6">
             <label className="form-label" htmlFor="nihongo">Tulisan Jepang</label>
@@ -63,7 +91,7 @@ export default function KosakataForm({ onAddKosakata }) {
               value={form.arti}
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-md-6">
             <label className="form-label" htmlFor="category">Kategori</label>
             <input
               className="form-control"
@@ -74,21 +102,40 @@ export default function KosakataForm({ onAddKosakata }) {
               value={form.category}
             />
           </div>
-          <div className="col-md-3">
-            <label className="form-label" htmlFor="tag">Tag</label>
+          <div className="col-md-6">
+            <label className="form-label" htmlFor="tag">
+              Tag <span className="text-body-secondary small">(opsional)</span>
+            </label>
             <input
               className="form-control"
               id="tag"
               name="tag"
               onChange={handleChange}
-              required
               value={form.tag}
             />
           </div>
+          <div className="col-md-6">
+            <label className="form-label" htmlFor="level">Level JLPT</label>
+            <select
+              className="form-select"
+              id="level"
+              name="level"
+              onChange={handleChange}
+              value={form.level}
+            >
+              {LEVEL_JLPT.map((level) => (
+                <option key={level} value={level}>{level}</option>
+              ))}
+            </select>
+          </div>
           <div className="col-12 d-flex justify-content-end">
-            <button className="btn btn-danger" type="submit">
-              <i className="bi bi-plus-lg me-2" />
-              Tambah
+            <button className="btn btn-danger" disabled={isSubmitting} type="submit">
+              {isSubmitting ? (
+                <span className="spinner-border spinner-border-sm me-2" aria-hidden="true" />
+              ) : (
+                <i className="bi bi-plus-lg me-2" />
+              )}
+              {isSubmitting ? 'Menyimpan...' : 'Tambah'}
             </button>
           </div>
         </form>

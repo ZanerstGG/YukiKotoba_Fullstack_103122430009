@@ -27,3 +27,5 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 21 | `21-rest-error-404.png` | REST Client: kosakata yang sudah dihapus tidak ditemukan (404 Not Found) | Langkah 7: Pengujian REST Client (error) |
 | 22 | `22-rest-error-400-validasi.png` | REST Client: data tidak lolos validasi DTO (400 Bad Request) | Langkah 7: Pengujian REST Client (error) |
 | 23 | `23-rest-error-400-uuid.png` | REST Client: format id bukan UUID (400 Bad Request) | Langkah 7: Pengujian REST Client (error, tambahan) |
+| 24 | `24-cors-main.png` | Mengaktifkan CORS di `main.ts` agar frontend (`localhost:5173`) dapat mengakses backend | Langkah 8: Integrasi frontend |
+| 25 | `25-data-awal-backend.png` | Data awal kosakata kini disediakan backend di `GET /kosakata` | Langkah 8: Integrasi frontend |
