@@ -29,3 +29,7 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 23 | `23-rest-error-400-uuid.png` | REST Client: format id bukan UUID (400 Bad Request) | Langkah 7: Pengujian REST Client (error, tambahan) |
 | 24 | `24-cors-main.png` | Mengaktifkan CORS di `main.ts` agar frontend (`localhost:5173`) dapat mengakses backend | Langkah 8: Integrasi frontend |
 | 25 | `25-data-awal-backend.png` | Data awal kosakata kini disediakan backend di `GET /kosakata` | Langkah 8: Integrasi frontend |
+| 26 | `26-api-service-frontend.png` | Service API frontend (`kosakataApi.js`) untuk GET, POST, PATCH, DELETE ke backend | Langkah 8: Integrasi frontend |
+| 27 | `27-frontend-memuat-data-backend.png` | Halaman Kosakata memuat 30 kosakata dari backend (`GET /kosakata` di tab Network) | Langkah 8: Integrasi frontend |
+| 28 | `28-frontend-tambah-kosakata.png` | Alur menambah data: kosakata baru tersimpan lewat `POST /kosakata` (201) dan tampil di daftar | Langkah 8: Integrasi frontend (tambah data) |
+| 29 | `29-frontend-error-duplikat.png` | Pesan error dari backend tampil di form saat kosakata duplikat (409) | Langkah 8: Integrasi frontend (error) |

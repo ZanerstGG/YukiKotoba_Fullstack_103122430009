@@ -6,13 +6,46 @@ import { useKosakata } from '../hooks/useKosakata';
 import { speakJapanese } from '../utils/speech';
 
 export default function Kosakata({ setActiveTab }) {
-  const { kosakata, isLoading, error, tambahKosakata } = useKosakata();
+  const {
+    kosakata,
+    isLoading,
+    error,
+    tambahKosakata,
+    ubahKosakata,
+    hapusKosakata,
+  } = useKosakata();
   const [activeWord, setActiveWord] = useState(null);
+  const [prosesId, setProsesId] = useState(null);
+  const [aksiError, setAksiError] = useState(null);
 
   const handleSpeak = (nihongo) => {
     setActiveWord(nihongo);
     speakJapanese(nihongo);
     setTimeout(() => setActiveWord(null), 500);
+  };
+
+  const jalankanAksi = async (id, aksi) => {
+    setProsesId(id);
+    setAksiError(null);
+    try {
+      await aksi();
+    } catch (err) {
+      setAksiError(err.message);
+    } finally {
+      setProsesId(null);
+    }
+  };
+
+  const handleToggleHafal = (item) =>
+    jalankanAksi(item.id, () =>
+      ubahKosakata(item.id, { sudahHafal: !item.sudahHafal }),
+    );
+
+  const handleDelete = (item) => {
+    if (!window.confirm(`Hapus kosakata "${item.nihongo}" (${item.arti})?`)) {
+      return;
+    }
+    jalankanAksi(item.id, () => hapusKosakata(item.id));
   };
 
   return (
@@ -33,6 +66,13 @@ export default function Kosakata({ setActiveTab }) {
 
           <KosakataForm onAddKosakata={tambahKosakata} />
 
+          {aksiError && (
+            <div className="alert alert-danger d-flex align-items-center gap-2" role="alert">
+              <i className="bi bi-exclamation-triangle-fill" aria-hidden="true" />
+              <span>{aksiError}</span>
+            </div>
+          )}
+
           {isLoading ? (
             <div className="card glow-card">
               <div className="card-body py-5 text-center text-body-secondary">
@@ -50,6 +90,9 @@ export default function Kosakata({ setActiveTab }) {
               activeWord={activeWord}
               items={kosakata}
               onSpeak={handleSpeak}
+              onToggleHafal={handleToggleHafal}
+              onDelete={handleDelete}
+              prosesId={prosesId}
             />
           )}
         </main>
