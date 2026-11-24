@@ -1,5 +1,6 @@
 import { ConflictException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { kosakataAwal } from './data/kosakata-awal.js';
 import { CreateKosakataDto } from './dto/create-kosakata.dto.js';
 import { KosakataService } from './kosakata.service.js';
 
@@ -53,6 +54,26 @@ describe('KosakataService', () => {
 
     expect(hasil.sudahHafal).toBe(true);
     expect(hasil.arti).toBe('Kucing');
+  });
+  
+  it('findAll: kosakata terbaru tampil paling atas', () => {
+    service.create(contohKosakata);
+    service.create({
+      nihongo: 'いぬ',
+      romaji: 'inu',
+      arti: 'Anjing',
+      category: 'Hewan',
+    });
+
+    expect(service.findAll()[0].nihongo).toBe('いぬ');
+  });
+
+  it('onModuleInit: mengisi data awal sesuai urutan aslinya', () => {
+    service.onModuleInit();
+    const semua = service.findAll();
+
+    expect(semua).toHaveLength(kosakataAwal.length);
+    expect(semua[0].nihongo).toBe(kosakataAwal[0].nihongo);
   });
 
   it('remove: menghapus kosakata dari daftar', () => {

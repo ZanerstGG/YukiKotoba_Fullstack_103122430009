@@ -3,14 +3,20 @@ import {
   ConflictException,
   Injectable,
   NotFoundException,
+  OnModuleInit,
 } from '@nestjs/common';
+import { kosakataAwal } from './data/kosakata-awal.js';
 import { CreateKosakataDto } from './dto/create-kosakata.dto.js';
 import { UpdateKosakataDto } from './dto/update-kosakata.dto.js';
 import { Kosakata } from './entities/kosakata.entity.js';
 
 @Injectable()
-export class KosakataService {
+export class KosakataService implements OnModuleInit {
   private kosakata: Kosakata[] = [];
+
+  onModuleInit(): void {
+    [...kosakataAwal].reverse().forEach((item) => this.create(item));
+  }
 
   create(createKosakataDto: CreateKosakataDto): Kosakata {
     this.pastikanBelumAda(createKosakataDto.nihongo);
@@ -34,9 +40,7 @@ export class KosakataService {
   }
 
   findAll(): Kosakata[] {
-    return [...this.kosakata].sort((a, b) =>
-      b.createdAt.localeCompare(a.createdAt),
-    );
+    return [...this.kosakata].reverse();
   }
 
   findOne(id: string): Kosakata {

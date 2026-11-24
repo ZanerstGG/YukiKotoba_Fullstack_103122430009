@@ -18,3 +18,12 @@ Semua file berada di folder [`screenshots/`](screenshots/). Kolom **Bagian** men
 | 12 | `12-unit-test-dto.png` | Hasil unit test validasi DTO (17 test lulus) | Langkah 5: DTO dan validasi (tambahan) |
 | 13 | `13-exception-handling.png` | `NotFoundException` dan `ConflictException` di Service Kosakata | Langkah 6: Penanganan error |
 | 14 | `14-e2e-test-error.png` | Hasil e2e test skenario error 404, 409, dan 400 (5 test lulus) | Langkah 6: Penanganan error (tambahan) |
+| 15 | `15-rest-post-tambah.png` | REST Client: POST `/kosakata` menambah kosakata (201 Created) | Langkah 7: Pengujian REST Client |
+| 16 | `16-rest-get-semua.png` | REST Client: GET `/kosakata` mengambil semua kosakata (200 OK) | Langkah 7: Pengujian REST Client |
+| 17 | `17-rest-get-satu.png` | REST Client: GET `/kosakata/:id` mengambil satu kosakata (200 OK) | Langkah 7: Pengujian REST Client |
+| 18 | `18-rest-patch-ubah.png` | REST Client: PATCH `/kosakata/:id` mengubah kosakata (200 OK) | Langkah 7: Pengujian REST Client |
+| 19 | `19-rest-error-409.png` | REST Client: menambah kosakata duplikat ditolak (409 Conflict) | Langkah 7: Pengujian REST Client (error) |
+| 20 | `20-rest-delete-hapus.png` | REST Client: DELETE `/kosakata/:id` menghapus kosakata (200 OK) | Langkah 7: Pengujian REST Client |
+| 21 | `21-rest-error-404.png` | REST Client: kosakata yang sudah dihapus tidak ditemukan (404 Not Found) | Langkah 7: Pengujian REST Client (error) |
+| 22 | `22-rest-error-400-validasi.png` | REST Client: data tidak lolos validasi DTO (400 Bad Request) | Langkah 7: Pengujian REST Client (error) |
+| 23 | `23-rest-error-400-uuid.png` | REST Client: format id bukan UUID (400 Bad Request) | Langkah 7: Pengujian REST Client (error, tambahan) |
